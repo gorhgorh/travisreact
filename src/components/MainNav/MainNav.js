@@ -19,10 +19,12 @@ class MainNav extends React.Component {
   render () {
     const nav = this.props.nav
     return (
-      <div className='main-nav'>
-        <ul>
-        {nav.map(this.renderNav)}
-        </ul>
+      <div className='App-header'>
+        <div className='main-nav'>
+          <ul>
+          {nav.map(this.renderNav)}
+          </ul>
+        </div>
       </div>
     )
   }

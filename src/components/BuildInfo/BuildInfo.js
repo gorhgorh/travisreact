@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 const BuildInfo = (props) => {
   console.log(props)
   return (
-    <div>
+    <div className='column'>
       {props.build.id}
       {Object.keys(props.build).map((key) => {
         return (

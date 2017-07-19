@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import App from './App'
-import Build from './components/Build/Build'
+import App from './pages/App'
+
+import NotFound from './NotFound.js'
+import Build from './pages/Build/Build'
+import MainNav from './components/MainNav/MainNav'
 import registerServiceWorker from './registerServiceWorker'
 
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 // const appRoute = {
 //   exactly: true,
@@ -14,18 +17,41 @@ import { BrowserRouter, Route } from 'react-router-dom'
 //   component: App
 // }
 
-const Root = () => {
-  return (
+class Root extends Component {
+  constructor () {
+    super()
+
+    this.state = {
+      nav: [
+        { text: 'home',
+          path: '/'
+        },
+        { text: 'build',
+          path: '/build'
+        }
+      ]
+    }
+  }
+
+  render () {
+    return (
     <BrowserRouter>
-      <div>
-        <Route
-          path="/"
-          component={props => <App {...props} />}
-        />
-        <Route exact path='/build' component={Build} />
+      <div className='App'>
+        <MainNav nav={this.state.nav}/>
+        <Switch>
+          <Route
+            exact
+            path="/"
+            component={props => <App {...props} />}/>
+          <Route exact
+            path='/build'
+            component={Build}
+            title= 'yo - homepage'/>
+          <Route component={NotFound} />
+        </Switch>
       </div>
-    </BrowserRouter>
-  )
+    </BrowserRouter>)
+  }
 }
 
 ReactDOM.render(<Root />, document.getElementById('root'))

@@ -7,7 +7,7 @@ const BuildInfo = (props) => {
       {props.build.id}
       {Object.keys(props.build).map((key) => {
         return (
-          <div key={key}>{key} :</div>
+          <div key={key}>{key} : {props.build[key]}</div>
         )
       })}
     </div>

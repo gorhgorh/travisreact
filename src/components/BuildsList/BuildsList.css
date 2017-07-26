@@ -17,8 +17,41 @@
 }
 
 .buildsList li{
-    background-color: white;
-    text-align: center;
+    text-align: left;
     flex-grow: 1;
     color: black;
+    border-bottom:1px solid;
+    max-height:4rem;
+    /* padding-left:50px */
+}
+.errored {
+  background-color: rgba(255,0,0,0.2)
+}
+.langCont{
+  display: inline-block;
+
+}
+.node_js{
+  background-image: url('../../assets/nodeLogo.svg');
+  background-repeat:no-repeat;
+  background-size:40px;
+  width: 40px;
+  height: 40px;
+}
+
+button {
+        /*Reset's every elements apperance*/
+        background: none repeat scroll 0 0 transparent;
+        border: medium none;
+        border-spacing: 0;
+        color: #26589F;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 1.42rem;
+        list-style: none outside none;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        text-decoration: none;
+        text-indent: 0;
 }

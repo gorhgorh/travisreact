@@ -1,7 +1,6 @@
 import React from 'react'
 
 const BuildInfo = (props) => {
-  console.log(props)
   return (
     <div className='column'>
       {props.build.id}

@@ -31,7 +31,6 @@ class Build extends Component {
     const currBuild = fetch(url).then((responce) => {
       return responce.json()
     }).then((j) => {
-      console.log(j)
       this.setState((state, props) => {
         return {currBuild: j}
       })
@@ -47,7 +46,6 @@ class Build extends Component {
     const allBuilds = fetch(url).then((responce) => {
       return responce.json()
     }).then((j) => {
-      console.log(j)
       this.setState((state, props) => {
         return {allBuilds: j}
       })
@@ -58,7 +56,7 @@ class Build extends Component {
   }
 
   componentWillMount () {
-    this.ref = this.fetchBuild('http://localhost:3001/testdata/failed.json')
+    // this.ref = this.fetchBuild('http://localhost:3001/testdata/failed.json')
     this.builds = this.fetchAllBuilds()
   }
 

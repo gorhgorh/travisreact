@@ -10,7 +10,7 @@ import registerServiceWorker from './registerServiceWorker'
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-// const appRoute = {
+// const appRoute = { 
 //   exactly: true,
 //   pattern: '/',
 //   title: `yo - homepage`,

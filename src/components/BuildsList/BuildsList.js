@@ -1,6 +1,6 @@
 import React from 'react'
 import './BuildsList.css'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 
 const BuildsList = (props) => {
   return (<div className='column'>
@@ -14,7 +14,7 @@ const BuildsList = (props) => {
 
         return (
           <li key={element.key} className={statusClass}>
-            <div className={element.lang + ' ' + 'langCont'}>&nbsp;</div>
+            <div className={element.lang + ' langCont'}>&nbsp;</div>
             <button onClick={() => props.updateBuild(element.key)}>
               <span>{element.repo}</span><br/>
               <span>{element.start}{element.status}</span><br/>
@@ -24,7 +24,7 @@ const BuildsList = (props) => {
     </ul>
   </div>)
 }
-BuildsList.propTypes = {
+// BuildsList.propTypes = {
 
-}
+// }
 export default BuildsList

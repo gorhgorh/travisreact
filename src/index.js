@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
+
 import App from './pages/App'
 
 import NotFound from './NotFound.js'
@@ -9,8 +10,10 @@ import MainNav from './components/MainNav/MainNav'
 import registerServiceWorker from './registerServiceWorker'
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
+var ioServer = 'http://localhost:4001'
+var io = require('socket.io-client')
 
-// const appRoute = { 
+// const appRoute = {
 //   exactly: true,
 //   pattern: '/',
 //   title: `yo - homepage`,
@@ -29,15 +32,34 @@ class Root extends Component {
         { text: 'build',
           path: '/build'
         }
-      ]
+      ],
+      botStatus: {
+        isConnected: false,
+        fromServer: false
+      }
     }
+  }
+
+  componentWillMount () {
+    var socket = io(ioServer)
+    socket.on('connect', function () {
+      console.log('connected', socket.id)
+    })
+    socket.on('test', function (msg) {
+      console.log(msg)
+    })
+    socket.on('bot:status', (status) => {
+      this.setState((state, props) => {
+        return {botStatus: status}
+      })
+    })
   }
 
   render () {
     return (
     <BrowserRouter>
       <div className='App'>
-        <MainNav nav={this.state.nav}/>
+        <MainNav nav={this.state.nav} botStatus={this.state.botStatus}/>
         <Switch>
           <Route
             exact

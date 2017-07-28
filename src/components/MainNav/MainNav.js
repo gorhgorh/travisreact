@@ -20,7 +20,8 @@ class MainNav extends React.Component {
     const nav = this.props.nav
     return (
       <div className='App-header'>
-        <div className='main-nav'>
+        <div className='main-nav '>
+          <div className={(this.props.botStatus.isConnected === true) ? 'botStatus botOn' : 'botStatus botOff'}>&nbsp;</div>
           <ul>
           {nav.map(this.renderNav)}
           </ul>
